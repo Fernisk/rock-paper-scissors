@@ -1,0 +1,78 @@
+<html lang="en">
+     <head> 
+         <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Rock Paper Scissors Game</title>
+         </head> 
+<body>
+    <!-- It will later be exported to another file .js -->
+    <script>
+        const handArr = [
+            'rock',
+            'scissors',
+            'paper'
+        ]
+       
+          // playerSelection 
+            //prompt player for input(hand) - case insensitive
+            function playerPlay(){
+            let playerInput = prompt("Choose your hand NOW!").toLowerCase();
+            }
+            const playerSelection = playerPlay();
+
+        // computerPlay 
+            function computerPlay(){
+                //random select from hand array
+                let handRandom = handArr[Math.floor(Math.random()*handArr.length)];
+                return handRandom;
+            }
+
+            //computerSelection
+            const computerSelection = computerPlay();
+
+        // function playRound
+        function playRound(playerSelection, computerSelection){
+            //handArr[0] = rock | handArr[1] = scissors | handArr[2] = paper
+            //if p.selection equals c.selection is a draw
+            if (playerSelection === computerSelection){
+                return `It's a draw`;
+            }
+                //if p. selection 'rock' equal scissors (player wins, computer loses)
+                 else if (playerSelection === 'rock' && computerSelection === 'scissors'){
+                 
+                    return `PLAYER WINS ! ${playerSelection} beats ${computerSelection}`;
+                }
+                
+                 //if p. selection 'scissors' equal paper (player wins, computer loses)
+
+                  else if (playerSelection === 'scissors' && computerSelection === 'paper'){
+                    return `PLAYER WINS ! ${playerSelection} beats ${computerSelection}`;
+                }
+                  
+                  //if p. selection 'paper' equal rock (player wins, computer loses)
+                   else if (playerSelection === 'paper' && computerSelection === 'rock'){
+                 
+                    return `PLAYER WINS ! ${playerSelection} beats ${computerSelection}`;
+                    }
+                //else if computer wins
+                    else {
+                    return `COMPUTER WINS ! ${computerSelection} beats ${playerSelection}`;
+                  }
+
+
+        }
+        // console.log(playRound(playerSelection, computerSelection));
+    //    function game  
+
+        function game(){
+            //for looping rounds
+            for (let i=0; i<5;i++){
+                playerSelection();
+                computerSelection(); 
+                return playRound(playerSelection, computerSelection);
+            }
+        } 
+        console.log(game());
+            
+        </script> 
+</body>
+</html>
