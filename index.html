@@ -6,43 +6,59 @@
 <body>
     <!-- It will later be exported to another file .js -->
     <script>
+        let result = {
+            playerWin: 0,
+            computerWin: 0,
+            tie: 0,
+        };
         const handArr = [
             'rock',
             'scissors',
             'paper'
         ]
+        //playerPlay
+         function playerPlay(){
+            //prompt player for input(hand) - case insensitive
+            let playerPrompt = prompt("Choose your hand NOW!").toLowerCase();
+            return playerPrompt
+         }
         // computerPlay 
             function computerPlay(){
                 //random select from hand array
                 let handRandom = handArr[Math.floor(Math.random()*handArr.length)];
                 return handRandom;
+
             }
+
         // function playRound
         function playRound(playerSelection, computerSelection){
             //handArr[0] = rock | handArr[1] = scissors | handArr[2] = paper
             //if p.selection equals c.selection is a draw
-            if (playerSelection === computerSelection){
+             if (playerSelection === computerSelection){
+                ++result.tie;
                 return `It's a draw`;
             }
                 //if p. selection 'rock' equal scissors (player wins, computer loses)
                  else if (playerSelection === 'rock' && computerSelection === 'scissors'){
-                 
+                    ++result.playerWin;
                     return `PLAYER WINS ! ${playerSelection} beats ${computerSelection}`;
                 }
                 
                  //if p. selection 'scissors' equal paper (player wins, computer loses)
 
                   else if (playerSelection === 'scissors' && computerSelection === 'paper'){
+                    ++result.playerWin;
                     return `PLAYER WINS ! ${playerSelection} beats ${computerSelection}`;
                 }
                   
                   //if p. selection 'paper' equal rock (player wins, computer loses)
                    else if (playerSelection === 'paper' && computerSelection === 'rock'){
-                 
+                    ++result.playerWin;
                     return `PLAYER WINS ! ${playerSelection} beats ${computerSelection}`;
-                    }
+                   }
                 //else if computer wins
                     else {
+                   ++result.computerWin;
                     return `COMPUTER WINS ! ${computerSelection} beats ${playerSelection}`;
                   }
 
@@ -51,20 +67,22 @@
 // console.log(playRound(playerSelection, computerSelection))
 
    function game(){
-       let result;
+       //5 round game
        for(let i = 0; i < 5; i++){
           // playerSelection 
             //prompt player for input(hand) - case insensitive
-            const playerSelection = prompt("Choose your hand NOW!").toLowerCase();
 
+            let playerSelection = playerPlay();
             //computerSelection
-            const computerSelection = computerPlay();
 
-
-           result += playRound(playerSelection, computerSelection);
+            let computerSelection = computerPlay();
+            //playing round
+            playRound(playerSelection, computerSelection);
        }
+       
        return result;
-   }
+    }
+   
 
  console.log(game())           
         </script> 
