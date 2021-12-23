@@ -16,7 +16,7 @@ body {
     background-color: #202124;
 }
 main{
-    width: 40%;
+    width: 45%;
 }
 
 .title{
@@ -30,10 +30,17 @@ main{
     display: flex;
     justify-content: space-around;
 }
+.container input {
+    transition: transform .2s;
+}
+.container input:hover {
+    transform: scale(1.5);
+}
 .filter{
     -webkit-filter: brightness(0) invert(1);
     filter: brightness(0) invert(1);
 }
+
 article {
     padding-top: 60px;
     text-align: center;
