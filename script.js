@@ -115,7 +115,7 @@ const gameOver = () => {
         resultComputer.textContent = "0";
     } else {
         resultOutput.textContent = "Tie, Start again by playing"
-        resultOutput.Style.fontSize = "30px";
+        resultOutput.style.fontSize = "30px";
         playerScore = 0;
         computerScore = 0;
         round = 0;
